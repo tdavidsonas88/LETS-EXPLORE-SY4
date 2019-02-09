@@ -19,14 +19,12 @@ class WelcomeController extends AbstractController
     }
 
     /**
-     * @Route("/hello", name="hello_page")
+     * @Route("/hello/{name}", name="hello_page", requirements={"name"="[A-Za-z]+"})
+     * @param string $name
      */
-    public function hello(Request $request){
-
-        $someVar = $request->query->get('someVar');
-
+    public function hello(string $name = 'CodeReviewVideos'){
         return $this->render('hello_page.html.twig', [
-            'some_variable_name' => $someVar
+            'person_name' => $name
         ]);
     }
 }
