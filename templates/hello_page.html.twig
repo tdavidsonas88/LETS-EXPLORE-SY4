@@ -3,5 +3,11 @@
 {% block title %}Some custom title{% endblock title %}
 
 {% block body %}
-    Hello, {{ app.request.query.get('name') }}!
+    <div>
+        Hello, {{ app.request.query.get('name') | default('CodeReviewVideos') }}!
+    </div>
+
+    <div>
+        My lovely variable: {{ some_variable_name | default('I am a lovely default value') }}
+    </div>
 {% endblock %}
